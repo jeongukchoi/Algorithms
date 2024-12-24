@@ -3,27 +3,13 @@
 
 using namespace std;
 string formatTime(int);
+int getTotalSeconds(string);
 
 string solution(string video_len, string pos, string op_start, string op_end, vector<string> commands) {
-    // initial position
-    int posMin = stoi(pos.substr(0, 2));
-    int posSec = stoi(pos.substr(pos.size()-2));
-    int posInSeconds = posMin * 60 + posSec;
-    
-    // opening start position
-    int opStartMin = stoi(op_start.substr(0,2));
-    int opStartSec = stoi(op_start.substr(op_start.size()-2));
-    int opStartInSeconds = opStartMin * 60 + opStartSec;
-    
-    // opening end position
-    int opEndMin = stoi(op_end.substr(0,2));
-    int opEndSec = stoi(op_end.substr(op_end.size()-2));
-    int opEndInSeconds = opEndMin * 60 + opEndSec;
-    
-    // video end position
-    int vidEndMin = stoi(video_len.substr(0,2));
-    int vidEndSec = stoi(video_len.substr(video_len.size()-2));
-    int vidEndInSeconds = vidEndMin * 60 + vidEndSec;
+    int posInSeconds = getTotalSeconds(pos);            // initial position
+    int opStartInSeconds = getTotalSeconds(op_start);   // opening start position
+    int opEndInSeconds = getTotalSeconds(op_end);       // opening end position
+    int vidEndInSeconds = getTotalSeconds(video_len);   // video end position
     
     // iterate through commands
     for (vector<string>::iterator command = commands.begin(); command != commands.end(); command++) {
@@ -71,6 +57,13 @@ string solution(string video_len, string pos, string op_start, string op_end, ve
     }
     
     return pos;
+}
+
+int getTotalSeconds(string str) {
+    string input = str;
+    int min = stoi(input.substr(0, 2));
+    int sec = stoi(input.substr(input.size()-2));
+    return min * 60 + sec;
 }
 
 string formatTime(int sec) {
