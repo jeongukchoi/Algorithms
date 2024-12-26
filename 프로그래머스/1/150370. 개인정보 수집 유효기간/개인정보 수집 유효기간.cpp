@@ -1,5 +1,4 @@
 #include <string>
-#include <string>
 #include <vector>
 #include <map>
 #include <iostream>
@@ -10,7 +9,7 @@ vector<int> solution(string today, vector<string> terms, vector<string> privacie
     vector<int> answer;
     
     int todayY = stoi(today);
-    int todayM = stoi(today.substr(5, 7));
+    int todayM = stoi(today.substr(5, 2));
     int todayD = stoi(today.substr(8));
     
     map<char, int> termsMap;
@@ -25,7 +24,7 @@ vector<int> solution(string today, vector<string> terms, vector<string> privacie
     for (auto it = privacies.begin(); it != privacies.end(); ++it) {
         const string info = *it;
         int infoY = stoi(info);
-        int infoM = stoi(info.substr(5, 7));
+        int infoM = stoi(info.substr(5, 2));
         int infoD = stoi(info.substr(8));
         char infoTerm = info[11];
         
