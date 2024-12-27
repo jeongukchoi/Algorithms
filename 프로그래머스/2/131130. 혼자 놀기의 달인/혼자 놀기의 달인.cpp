@@ -1,6 +1,4 @@
-#include <string>
 #include <vector>
-#include <iostream>
 #include <algorithm>
 
 using namespace std;
@@ -33,7 +31,7 @@ int solution(vector<int> cards) {
     // pick the two best counts
     for (int num : counts) {
         if (num > best) {
-            secondBest = best;
+            secondBest = best; // << 이 부분은 질문 게시판에서 힌트를 얻었습니다.
             best = num;
         } else if (num > secondBest) {
             secondBest = num;
