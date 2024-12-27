@@ -6,13 +6,8 @@ using namespace std;
 int solution(vector<int> absolutes, vector<bool> signs) {
     int answer = 0;
     
-    auto signsIter = signs.begin();
-    for (int absolute : absolutes) {
-        int sign = ((*signsIter) ? 1 : -1);
-        
-        answer += absolute * sign;
-        
-        ++signsIter;
+    for(int i = 0; i < absolutes.size(); i++) {
+        answer += absolutes[i] * ((signs[i] ? 1 : -1));
     }
     
     return answer;
