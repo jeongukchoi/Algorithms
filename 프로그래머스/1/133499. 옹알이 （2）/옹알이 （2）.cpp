@@ -5,9 +5,7 @@ using namespace std;
 
 int solution(vector<string> babbling) {
     int answer = 0;
-    
-    vector<string> cases = {"aya", "ye", "woo", "ma"};
-    
+        
     for (string s : babbling) {
         string temp = s;
         string last = "";
