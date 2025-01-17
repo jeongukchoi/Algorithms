@@ -9,22 +9,6 @@ int solution(vector<string> babbling) {
     vector<string> cases = {"aya", "ye", "woo", "ma"};
     
     for (string s : babbling) {
-        // 길이가 1이면 패스
-        if (s.length() < 2) {
-            continue;
-        }
-        
-        // 길이가 2 또는 3인 경우 일치하면 카운트
-        if (s.length() == 2 || s.length() == 3) {
-            for (string s2 : cases) {
-                if (s == s2) {
-                    answer++;
-                    break;
-                }
-            }
-            continue;
-        }
-                
         string temp = s;
         string last = "";
         bool flag = false;
