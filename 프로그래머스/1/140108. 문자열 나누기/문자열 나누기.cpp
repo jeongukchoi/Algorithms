@@ -2,10 +2,9 @@
 
 using namespace std;
 
-
-int recursion(string s) {
-    if (s.empty()) return 0;
-    if (s.length() <= 1) return 1;
+int recursion(string s, int count) {
+    if (s.empty()) return count;
+    if (s.length() == 1) return count + 1;
     
     char x = s[0];
     int same = 0;
@@ -16,12 +15,12 @@ int recursion(string s) {
         else different++;
         
         if (same > 0 && same == different){
-            return 1 + recursion(s.substr(i+1));
+            return recursion(s.substr(i+1), count + 1);
         }
     }
-    return 1;
+    return count + 1;
 }
 
 int solution(string s) {
-    return recursion(s);
+    return recursion(s, 0);
 }
