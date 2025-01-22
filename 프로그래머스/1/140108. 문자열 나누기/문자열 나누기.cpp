@@ -1,10 +1,10 @@
 #include <string>
-#include <vector>
 
 using namespace std;
 
 
 int recursion(string s) {
+    if (s.empty()) return 0;
     if (s.length() <= 1) return 1;
     
     char x = s[0];
@@ -15,8 +15,9 @@ int recursion(string s) {
         if (s[i] == x) same++;
         else different++;
         
-        if (same > 0 && same == different)
+        if (same > 0 && same == different){
             return 1 + recursion(s.substr(i+1));
+        }
     }
     return 1;
 }
