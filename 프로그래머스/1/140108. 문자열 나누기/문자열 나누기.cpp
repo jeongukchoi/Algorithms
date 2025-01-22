@@ -22,5 +22,5 @@ int recursion(string s) {
 }
 
 int solution(string s) {
-    return recursion(s);;
+    return recursion(s);
 }
