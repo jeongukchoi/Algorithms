@@ -21,17 +21,16 @@ vector<int> solution(vector<string> keymap, vector<string> targets) {
     
     for (const string& target : targets) {
         int totalNumPress = 0;
-        bool flag = false;
+
         for (char targetChar : target) {
             int numPress = minMap[targetChar];
             if (!numPress) {
-                answer.push_back(-1);
-                flag = true;
+                totalNumPress = -1;
                 break;
             }
             totalNumPress += numPress;
         }
-        if (!flag) answer.push_back(totalNumPress);
+        answer.push_back(totalNumPress);
     }
     
     return answer;
