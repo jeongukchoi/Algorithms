@@ -1,29 +1,13 @@
 #include <string>
-#include <vector>
-#include <iostream>
 
 using namespace std;
 
 string solution(string s) {
     string answer = "";
-    
-    bool flag = true;
-    for (int i = 0; i < s.length(); i++)
-    {
-        char c = s[i];
-        if (flag && c >= 'a' && c <= 'z') {
-            answer += c + ('A' - 'a');
-        }
-        else if (!flag && c >= 'A' && c <= 'Z')
-        {
-            answer += c + ('a' - 'A');
-        }
-        else
-        {
-            answer += c;
-        }
-        flag = c == ' ';
-    }
+
+    answer += toupper(s[0]);
+    for (int i = 1; i < s.length(); i++)
+        answer += s[i-1] == ' ' ? toupper(s[i]) : tolower(s[i]);
     
     return answer;
 }
