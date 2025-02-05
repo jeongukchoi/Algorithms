@@ -3,16 +3,14 @@
 using namespace std;
 
 vector<int> solution(int brown, int yellow) {
-    vector<int> answer;
-    
-    for (int brownHeight = 3; brownHeight <= brown / 4 + 1; brownHeight++)
+    int widthPlusHeight = brown / 2 + 2;
+    int height = 3;
+    int width = widthPlusHeight - height;
+    for (; height <= widthPlusHeight / 2; height++)
     {
-        int brownWidth = brown / 2 + 2 - brownHeight;
-        if ((brownWidth - 2) * (brownHeight - 2) == yellow)
-        {
-            return {brownWidth, brownHeight};
-        }
+        width = widthPlusHeight - height;
+        if ((width - 2) * (height - 2) == yellow) break;
     }
     
-    return answer;
+    return {width, height};
 }
