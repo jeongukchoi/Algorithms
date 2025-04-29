@@ -1,9 +1,8 @@
-#include <string>
 #include <vector>
 
 using namespace std;
 
-void dfs(vector<int>& numbers, int index, int target, int sum, int& count) {
+void dfs(const vector<int>& numbers, int index, int target, int sum, int& count) {
     if (index == numbers.size()) {
         if (sum == target)++count;
         return;
